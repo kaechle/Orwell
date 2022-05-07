@@ -10,12 +10,9 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
-    <div
-      class="flex flex-row flex-grow w-screen h-screen overflow-hidden"
-      x-data="{ showDrawer: false }"
-    >
+    <div class="flex flex-row flex-grow w-screen h-screen" x-data="{ showDrawer: true }">
       <!-- Document Panel -->
-      <div class="flex flex-col min-w-80 bg-black p-6" x-show="showDrawer">
+      <div class="flex flex-col w-80 bg-black p-6" x-show="showDrawer">
         <span class="text-gray-600">MY DOCUMENTS</span>
         <button class="flex justify-center m-auto my-8 p-2 w-full bg-orange-600 rounded">
           <span class="text-white">+ New Document</span>
@@ -31,7 +28,7 @@
         </div>
       </div>
       <!-- Main Panel -->
-      <div class="flex flex-col w-full h-full">
+      <div class="flex flex-col w-full h-full overflow-hidden">
         <!-- Top Nav/Menu -->
         <div class="flex place-content-between bg-black h-16">
           <div class="flex">
@@ -71,15 +68,19 @@
         </div>
         <!-- Text Editor and Preview-->
         <div
-          class="flex flex-row"
+          class="flex flex-row overflow-hidden"
           x-data="{ markdown: document.getElementById('editor').innerHTML }"
         >
           <!-- Text Editor -->
-          <div class="flex flex-col overflow-hidden w-[50vw] border-r border-gray-300">
-            <div class="flex items-center h-12 bg-gray-100 pl-4">
+          <div class="flex flex-col overflow-hidden w-2/4 border-r border-gray-300">
+            <div class="flex flex-grow items-center h-[48px] bg-gray-100 pl-4">
               <span class="text-gray-400">MARKDOWN</span>
             </div>
-            <textarea id="editor" class="h-[calc(100vh-3rem)] resize-none p-6 font-mono">
+            <textarea
+              x-model="markdown"
+              id="editor"
+              class="h-[calc(100vh-3rem)] resize-none p-6 font-mono"
+            >
 # Welcome to Markdown
             
 Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
@@ -119,56 +120,22 @@ This markdown editor allows for inline-code snippets, like this: `<p>I'm inline<
           </div>
 
           <!-- Preview -->
-          <div class="flex flex-col w-[50vw]">
-            <div class="flex items-center place-content-between h-12 bg-gray-100 pl-4">
+          <div class="flex flex-col overflow-hidden w-2/4">
+            <div
+              class="flex flex-grow items-center place-content-between h-[62px] bg-gray-100 pl-4"
+            >
               <span class="text-gray-400">PREVIEW</span>
               <button class="pr-4">
                 <img src="assets/img/icon-hide-preview.svg" alt="hide preview" />
               </button>
             </div>
-            <div class="p-6 font-serif flow-text break-all" x-html="marked.parse(markdown)"></div>
+            <div
+              class="p-6 font-serif break-word overflow-y-scroll"
+              x-html="marked.parse(markdown)"
+            ></div>
           </div>
         </div>
       </div>
-      <script type="module">
-        function orwell(text) {
-          require(marked)
-          return marked.render(text)`# Welcome to Markdown
-
-        Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
-
-        ## How to use this?
-
-        1. Write markdown in the markdown editor window
-        2. See the rendered markdown in the preview window
-
-        ### Features
-
-        - Create headings, paragraphs, links, blockquotes, inline-code, code blocks, and lists
-        - Name and save the document to access again later
-        - Choose between Light or Dark mode depending on your preference
-
-        > This is an example of a blockquote. If you would like to learn more about markdown syntax, you can visit this [markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/).
-
-        #### Headings
-
-        To create a heading, add the hash sign (#) before the heading. The number of number signs you use should correspond to the heading level. You'll see in this guide that we've used all six heading levels (not necessarily in the correct way you should use headings!) to illustrate how they should look.
-
-        ##### Lists
-
-        You can see examples of ordered and unordered lists above.
-
-        ###### Code Blocks
-
-        This markdown editor allows for inline-code snippets, like this: \`<p>I'm inline</p>\`. It also allows for larger code blocks like this:
-
-        \`\`\`
-        <main>
-          <h1>This is a larger code block</h1>
-        </main>
-        \`\`\``
-        }
-      </script>
     </div>
   </body>
 </html>
