@@ -6,42 +6,84 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
   </head>
   <body>
-    <nav class="flex place-content-between bg-black h-16">
-      <div class="flex">
-        <button
-          class="flex h-full w-16 place-content-center items-center bg-gray-600"
-        >
-          <img src="./assets/img/icon-menu.svg" alt="menu" />
-        </button>
-
-        <div class="flex place-content-center items-center">
-          <div class="border-r px-4 border-gray-600">
-            <span class="text-white">MARKDOWN</span>
-          </div>
+    <div class="flex h-full w-full flex-row">
+      <!-- Document List -->
+      <div class="hidden h-full flex flex-col w-80 bg-black p-6">
+        <div>
+          <span class="text-gray-600">MY DOCUMENTS</span>
+          <button class="flex justify-center m-auto my-8 p-2 w-full bg-orange-600 rounded">
+            <span class="text-white">+ New Document</span>
+          </button>
           <div class="flex">
-            <div class="flex place-content-center items-center px-4">
-              <img
-                src="assets/img/icon-document.svg"
-                alt="document information"
-              />
+            <div class="flex place-content-center items-center pr-4">
+              <img src="assets/img/icon-document.svg" alt="document information" />
             </div>
             <div>
-              <div class="text-gray-600">Document Name</div>
+              <div class="text-gray-600">01 April 2022</div>
               <div class="text-white">welcome.md</div>
             </div>
           </div>
         </div>
+        <div></div>
       </div>
 
-      <div class="flex items-center">
-        <button>
-          <img src="assets/img/icon-delete.svg" alt="delete file" />
-        </button>
-        <button class="flex items-center p-2 bg-orange-600 m-4 rounded">
-          <img src="assets/img/icon-save.svg" alt="save file" />
-          <span class="text-white ml-2">Save Changes</span>
-        </button>
+      <div class="flex h-full flex-col w-full">
+        <!-- Top Nav/Menu -->
+        <div class="flex place-content-between bg-black h-16 w-full">
+          <div class="flex">
+            <button class="flex h-full w-16 place-content-center items-center bg-gray-600">
+              <img src="./assets/img/icon-menu.svg" alt="menu" />
+            </button>
+
+            <div class="flex place-content-center items-center">
+              <div class="border-r px-4 border-gray-600">
+                <span class="text-white">MARKDOWN</span>
+              </div>
+              <div class="flex">
+                <div class="flex place-content-center items-center px-4">
+                  <img src="assets/img/icon-document.svg" alt="document information" />
+                </div>
+                <div>
+                  <div class="text-gray-600">Document Name</div>
+                  <div class="text-white">welcome.md</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <button>
+              <img src="assets/img/icon-delete.svg" alt="delete file" />
+            </button>
+            <button class="flex items-center p-2 bg-orange-600 m-4 rounded">
+              <img src="assets/img/icon-save.svg" alt="save file" />
+              <span class="text-white ml-2">Save Changes</span>
+            </button>
+          </div>
+        </div>
+        <!-- Text Editor and Preview-->
+        <div class="flex flex-row flex-grow">
+          <!-- Text Editor -->
+          <div class="flex flex-col flex-grow w-2/4 border-r border-gray-300">
+            <div class="flex items-center h-12 bg-gray-100 pl-4">
+              <span class="text-gray-400">MARKDOWN</span>
+            </div>
+
+            <textarea class="flex-grow h-fit resize-none p-6 font-mono"></textarea>
+          </div>
+
+          <!-- Preview -->
+          <div class="flex flex-col flex-grow w-2/4">
+            <div class="flex items-center place-content-between h-12 bg-gray-100 pl-4">
+              <span class="text-gray-400">PREVIEW</span>
+              <button class="pr-4">
+                <img src="assets/img/icon-hide-preview.svg" alt="hide preview" />
+              </button>
+            </div>
+            <div class="flex-grow h-fit resize-none p-6"></div>
+          </div>
+        </div>
       </div>
-    </nav>
+    </div>
   </body>
 </html>
