@@ -5,36 +5,48 @@
 @layer base {
   html,
   body {
-    @apply h-full;
+    @apply h-full overflow-hidden text-dark-400;
   }
   h1 {
-    @apply text-4xl font-bold my-4;
+    @apply text-4xl font-bold mb-[20px];
   }
   h2 {
-    @apply text-3xl font-light my-4;
+    @apply text-3xl font-light my-[20px];
   }
   h3 {
-    @apply text-2xl font-bold my-4;
+    @apply text-2xl font-bold my-[20px];
   }
   h4 {
-    @apply text-xl font-bold my-4;
+    @apply text-xl font-bold my-[20px];
   }
   h5 {
-    @apply font-bold my-4;
+    @apply font-bold my-[20px];
   }
   h6 {
-    @apply font-semibold text-orange-600 my-4;
+    @apply font-semibold text-accent-100 my-[20px];
   }
   p {
-    @apply my-4 font-light;
+    @apply my-[20px] text-dark-600 font-normal;
   }
   ol {
-    @apply list-decimal pl-12;
+    @apply font-light list-decimal pl-12 text-dark-600 font-normal;
   }
   ul {
-    @apply list-disc pl-12;
+    @apply font-light list-disc pl-12 text-dark-600 marker:text-accent-100 marker:text-xs font-normal;
   }
-  blockquote {
-    @apply bg-gray-200 py-1 px-4 my-3 border-orange-600 border-l-4 rounded-md;
+  blockquote p {
+    @apply bg-light-300 font-bold text-dark-400 p-[24px] my-3 border-accent-100 border-l-4 rounded-md;
+  }
+
+  a {
+    @apply underline;
+  }
+
+  pre code {
+    @apply block font-mono bg-light-300 p-[24px] my-3 rounded-md;
+  }
+
+  p code {
+    @apply text-dark-300;
   }
 }
