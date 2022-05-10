@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ darkMode: false }" :class="{ '': !darkMode, 'dark': darkMode }">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
     />
   </head>
   <body>
-    <div class="fixed flex flex-row flex-grow w-screen h-screen" x-data="{ showDrawer: true }">
+    <div class="fixed flex flex-row w-screen h-screen" x-data="{ showDrawer: true }">
       <!-- Document Panel -->
       <div
         class="absolute flex flex-col md:static h-full w-80 bg-dark-200 p-6 place-content-between"
@@ -42,16 +42,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="flex items-center w-full cursor-pointer"
-          x-data="{ isOn: true }"
-          @click="isOn = !isOn"
-          :aria-checked="isOn"
-        >
+        <div class="flex items-center w-full cursor-pointer" @click="darkMode = !darkMode">
           <svg
-            aria-hidden="true"
-            class="fill-white"
-            :class="{ 'fill-white': !isOn, 'fill-gray-700': isOn }"
+            :class="{ 'fill-white': darkMode, 'fill-gray-700': !darkMode }"
             width="17"
             height="16"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,8 +74,7 @@
             tabindex="0"
           >
             <span
-              aria-hidden="true"
-              :class="{'translate-x-6': isOn, 'translate-x-0': !isOn }"
+              :class="{'translate-x-6': !darkMode, 'translate-x-0': darkMode }"
               class="
                 translate-x-0
                 inline-block
@@ -102,8 +94,7 @@
           </span>
           <svg
             aria-hidden="true"
-            class="fill-white"
-            :class="{ 'fill-white': isOn, 'fill-gray-700': !isOn }"
+            :class="{ 'fill-white': !darkMode, 'fill-gray-700': darkMode }"
             width="18"
             height="18"
             xmlns="http://www.w3.org/2000/svg"
@@ -156,9 +147,26 @@
         <!-- Text Editor and Preview-->
         <div class="flex flex-row overflow-hidden h-[calc(100vh-4rem)]" x-data="editor">
           <!-- Text Editor -->
-          <div class="flex flex-col overflow-hidden w-2/4 border-r border-light-200">
-            <div class="flex items-center h-[42px] bg-light-300 pl-4">
-              <span class="text-dark-600 font-medium text-[14px] tracking-[2]">MARKDOWN</span>
+          <div
+            class="
+              flex flex-col
+              overflow-hidden
+              w-2/4
+              border-r border-light-200
+              dark:border-dark-500
+            "
+            x-show="!showPreview"
+            x-transition:enter="transition-all ease-in-out duration-300"
+            x-transition:enter-start="-ml-[50%]"
+            x-transition:enter-end="ml-0"
+            x-transition:leave="transition-all ease-in-out duration-300"
+            x-transition:leave-start="ml-0"
+            x-transition:leave-end="-ml-[50%]"
+          >
+            <div class="flex items-center h-[42px] bg-light-300 dark:bg-dark-200 pl-4">
+              <span class="text-dark-600 dark:text-light-100 font-medium text-[14px] tracking-[2]">
+                MARKDOWN
+              </span>
             </div>
             <textarea
               x-model="body"
@@ -171,20 +179,50 @@
                 text-[14px]
                 border-none
                 focus:outline-none
+                dark:bg-dark-100
+                transition
+                duration-500
+                max-w-[672px]
               "
             ></textarea>
           </div>
 
           <!-- Preview -->
-          <div class="flex flex-col w-2/4 h-full">
-            <div class="flex items-center place-content-between h-[42px] bg-light-300 pl-4">
-              <span class="text-dark-600 font-medium text-[14px] tracking-[2]">PREVIEW</span>
-              <button class="pr-4">
+          <div
+            class="flex flex-col w-2/4 h-full"
+            :class="{ 'w-full': showPreview, 'w-2/4': !showPreview }"
+          >
+            <div
+              class="
+                flex
+                items-center
+                place-content-between
+                h-[42px]
+                bg-light-300
+                dark:bg-dark-200
+                transition
+                duration-500
+                pl-4
+              "
+            >
+              <span class="text-dark-600 dark:text-light-100 font-medium text-[14px] tracking-[2]">
+                PREVIEW
+              </span>
+              <button class="pr-4" @click="showPreview = !showPreview">
                 <img src="assets/img/icon-hide-preview.svg" alt="hide preview" />
               </button>
             </div>
             <div
-              class="h-[calc(100vh-42px)] p-6 font-serif break-word overflow-y-scroll"
+              class="
+                h-[calc(100vh-42px)]
+                p-6
+                font-serif
+                break-word
+                overflow-y-scroll
+                dark:bg-dark-100
+                max-w-[672px]
+                mx-auto
+              "
               x-html="marked.parse(body)"
             ></div>
           </div>

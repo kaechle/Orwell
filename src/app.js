@@ -14,11 +14,11 @@ marked.setOptions({
 
 Alpine.data("editor", () => ({
   body: `# Welcome to Markdown
-              
+  
   Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
-              
+  
   ## How to use this?
-              
+  
   1. Write markdown in the markdown editor window
   2. See the rendered markdown in the preview window
               
@@ -47,20 +47,9 @@ Alpine.data("editor", () => ({
     <h1>This is a larger code block</h1>
   </main>
   \`\`\``,
-  markdown: ""
-
-  // preview() {
-  //   this.markdown = marked.parse(this.body)
-  // }
-  // init() {
-  //   setInterval(() => {
-  //     console.log(this.string)
-  //     this.preview()
-  //   }, 2000)
-  // }
+  markdown: "",
+  showPreview: false
 }))
-
-// var marked = require("marked")
 
 window.marked = marked
 window.Alpine = Alpine

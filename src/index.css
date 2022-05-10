@@ -5,22 +5,22 @@
 @layer base {
   html,
   body {
-    @apply h-full overflow-hidden text-dark-400;
+    @apply h-full overflow-hidden text-dark-400 dark:text-light-100 m-0;
   }
   h1 {
-    @apply text-4xl font-bold mb-[20px];
+    @apply text-4xl font-bold mb-[20px] dark:text-light-400 transition duration-500;
   }
   h2 {
-    @apply text-3xl font-light my-[20px];
+    @apply text-3xl font-light my-[20px] dark:text-light-400 transition duration-500;
   }
   h3 {
-    @apply text-2xl font-bold my-[20px];
+    @apply text-2xl font-bold my-[20px] dark:text-light-400 transition duration-500;
   }
   h4 {
-    @apply text-xl font-bold my-[20px];
+    @apply text-xl font-bold my-[20px] dark:text-light-400 transition duration-500;
   }
   h5 {
-    @apply font-bold my-[20px];
+    @apply font-bold my-[20px] dark:text-light-400 transition duration-500;
   }
   h6 {
     @apply font-semibold text-accent-100 my-[20px];
@@ -36,6 +36,7 @@
   }
   blockquote p {
     @apply bg-light-300 font-bold text-dark-400 p-[24px] my-3 border-accent-100 border-l-4 rounded-md;
+    @apply dark:text-light-400 dark:bg-dark-300  transition duration-500;
   }
 
   a {
@@ -44,9 +45,11 @@
 
   pre code {
     @apply block font-mono bg-light-300 p-[24px] my-3 rounded-md;
+    @apply dark:text-light-400 dark:bg-dark-300 transition duration-500;
   }
 
   p code {
     @apply text-dark-300;
+    @apply dark:text-light-400 dark:bg-dark-300 transition duration-500;
   }
 }
