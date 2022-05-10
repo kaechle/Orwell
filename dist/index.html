@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ darkMode: false }" :class="{ '': !darkMode, 'dark': darkMode }">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/index.61d3354a.css">
+    <script defer="" src="/index.0641b553.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="fixed flex flex-row w-screen h-screen" x-data="{ showDrawer: true }">
+      <!-- Document Panel -->
+      <div class="absolute flex flex-col md:static h-full w-80 bg-dark-200 p-6 place-content-between" x-show="showDrawer" x-cloak="" x-transition:enter="transition-all ease-out duration-300" x-transition:enter-start="-ml-80" x-transition:enter-end="ml-0" x-transition:leave="transition-all ease-out duration-300" x-transition:leave-start="ml-0" x-transition:leave-end="-ml-80">
+        <div class="flex flex-col">
+          <span class="text-dark-600 font-medium tracking-[2] text-[14px]">MY DOCUMENTS</span>
+          <button class="flex justify-center m-auto my-8 p-2 w-full bg-accent-100 rounded">
+            <span class="text-light-400 text-[15px]">+ New Document</span>
+          </button>
+          <div class="flex cursor-pointer">
+            <div class="flex place-content-center items-center pr-4">
+              <img src="/icon-document.4b787340.svg" alt="document information">
+            </div>
+            <div>
+              <div class="text-dark-600 font-light text-[13px]">01 April 2022</div>
+              <div class="text-light-400 text-[15px]">welcome.md</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center w-full cursor-pointer" @click="darkMode = !darkMode">
+          <svg :class="{ 'fill-white': darkMode, 'fill-gray-700': !darkMode }" width="17" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.141 8.804a.823.823 0 0 0-.864-.115 6.622 6.622 0 0 1-2.772.6A6.704 6.704 0 0 1 5.81 2.626 7.066 7.066 0 0 1 6.015.981a.823.823 0 0 0-1.094-.93 8.341 8.341 0 1 0 11.516 9.617.823.823 0 0 0-.296-.864Zm-7.814 5.503A6.696 6.696 0 0 1 4.164 2.404v.222a8.35 8.35 0 0 0 10.069 8.16 6.671 6.671 0 0 1-5.906 3.554v-.033Z"></path>
+          </svg>
+          <span class="
+              bg-dark-500
+              relative
+              inline-block
+              flex-shrink-0
+              mx-6
+              h-[24px]
+              w-[48px]
+              rounded-full
+              cursor-pointer
+              transition-colors
+              ease-in-out
+              duration-200
+              focus:outline-none
+              focus:shadow-outline
+            " role="checkbox" tabindex="0">
+            <span :class="{'translate-x-6': !darkMode, 'translate-x-0': darkMode }" class="
+                translate-x-0
+                inline-block
+                h-[12px]
+                w-[12px]
+                ml-[6px]
+                mt-[6px]
+                rounded-full
+                bg-light-400
+                shadow
+                transform
+                transition
+                ease-in-out
+                duration-200
+              "></span>
+          </span>
+          <svg aria-hidden="true" :class="{ 'fill-white': !darkMode, 'fill-gray-700': darkMode }" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.7 9a.9.9 0 0 0-.9-.9H.9a.9.9 0 0 0 0 1.8h.9a.9.9 0 0 0 .9-.9Zm.576 4.5-.639.639a.9.9 0 0 0 0 1.269.9.9 0 0 0 1.269 0l.639-.639A.9.9 0 0 0 3.276 13.5ZM9 2.7a.9.9 0 0 0 .9-.9V.9a.9.9 0 0 0-1.8 0v.9a.9.9 0 0 0 .9.9Zm5.094 2.106a.9.9 0 0 0 .63-.261l.639-.639a.9.9 0 1 0-1.269-1.269l-.594.639a.9.9 0 0 0 0 1.269.9.9 0 0 0 .594.261Zm-10.8-.261a.9.9 0 0 0 1.269 0 .9.9 0 0 0 0-1.269l-.639-.639a.904.904 0 1 0-1.287 1.269l.657.639ZM17.1 8.1h-.9a.9.9 0 1 0 0 1.8h.9a.9.9 0 1 0 0-1.8Zm-2.376 5.4a.9.9 0 0 0-1.224 1.224l.639.639a.9.9 0 0 0 1.269 0 .9.9 0 0 0 0-1.269l-.684-.594ZM9 4.05A4.95 4.95 0 1 0 13.95 9 4.959 4.959 0 0 0 9 4.05Zm0 8.1a3.15 3.15 0 1 1 0-6.3 3.15 3.15 0 0 1 0 6.3Zm0 3.15a.9.9 0 0 0-.9.9v.9a.9.9 0 1 0 1.8 0v-.9a.9.9 0 0 0-.9-.9Z"></path>
+          </svg>
+        </div>
+      </div>
+      <!-- Main Panel -->
+      <div class="flex flex-col w-full h-full overflow-hidden">
+        <!-- Top Nav/Menu -->
+        <div class="flex place-content-between bg-dark-300 h-16">
+          <div class="flex">
+            <button id="showDrawerButton" class="flex h-full w-16 place-content-center items-center bg-dark-400" x-on:click="showDrawer = !showDrawer">
+              <img src="/icon-menu.fef5ddfe.svg" alt="menu">
+            </button>
+
+            <div class="flex place-content-center items-center">
+              <div class="border-r px-4 border-gray-600">
+                <img src="/logo.e1e57082.svg" alt="markdown logo">
+              </div>
+              <div class="flex cursor-pointer">
+                <div class="flex place-content-center items-center px-4">
+                  <img src="/icon-document.4b787340.svg" alt="document information">
+                </div>
+                <div>
+                  <div class="text-dark-600 text-light text-[13px]">Document Name</div>
+                  <div class="text-light-400 text-[15px]">welcome.md</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <button>
+              <img src="/icon-delete.766b9287.svg" alt="delete file">
+            </button>
+            <button class="flex items-center p-2 bg-accent-100 m-4 rounded">
+              <img src="/icon-save.6b06e397.svg" alt="save file">
+              <span class="text-light-400 ml-3 text-[15px]">Save Changes</span>
+            </button>
+          </div>
+        </div>
+        <!-- Text Editor and Preview-->
+        <div class="flex flex-row overflow-hidden h-[calc(100vh-4rem)]" x-data="editor">
+          <!-- Text Editor -->
+          <div class="
+              flex flex-col
+              overflow-hidden
+              w-2/4
+              border-r border-light-200
+              dark:border-dark-500
+            " x-show="!showPreview" x-transition:enter="transition-all ease-in-out duration-300" x-transition:enter-start="-ml-[50%]" x-transition:enter-end="ml-0" x-transition:leave="transition-all ease-in-out duration-300" x-transition:leave-start="ml-0" x-transition:leave-end="-ml-[50%]">
+            <div class="flex items-center h-[42px] bg-light-300 dark:bg-dark-200 pl-4">
+              <span class="text-dark-600 dark:text-light-100 font-medium text-[14px] tracking-[2]">
+                MARKDOWN
+              </span>
+            </div>
+            <textarea x-model="body" id="editor" class="
+                h-[calc(100vh-42px)]
+                resize-none
+                p-6
+                font-mono font-dark-400
+                text-[14px]
+                border-none
+                focus:outline-none
+                dark:bg-dark-100
+                transition
+                duration-500
+                max-w-[672px]
+              "></textarea>
+          </div>
+
+          <!-- Preview -->
+          <div class="flex flex-col w-2/4 h-full transition-all duration-300" :class="{ 'w-full': showPreview, 'w-2/4': !showPreview }">
+            <div class="
+                flex
+                items-center
+                place-content-between
+                h-[42px]
+                bg-light-300
+                dark:bg-dark-200
+                transition
+                duration-500
+                pl-4
+              ">
+              <span class="text-dark-600 dark:text-light-100 font-medium text-[14px] tracking-[2]">
+                PREVIEW
+              </span>
+              <button class="pr-4" @click="showPreview = !showPreview">
+                <img src="/icon-hide-preview.28921eb4.svg" alt="hide preview">
+              </button>
+            </div>
+            <div class="
+                h-[calc(100vh-42px)]
+                p-6
+                font-serif
+                break-word
+                overflow-y-scroll
+                dark:bg-dark-100
+                max-w-[672px]
+                mx-auto
+              " x-html="marked.parse(body)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
